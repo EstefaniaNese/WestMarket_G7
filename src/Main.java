@@ -1,15 +1,16 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+// Esta es la clase principal donde iniciamos la aplicación.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        // Creamos una instancia de ProductoService para gestionar el flujo de la aplicación.
+        ProductoService servicio = new ProductoService();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        // Llamamos al método para crear un producto y capturamos el resultado.
+        Producto producto = servicio.crearProducto();
+
+        // Si el producto fue creado correctamente, imprimimos sus datos.
+        if (producto != null) {
+            servicio.imprimirProducto(producto);
         }
+        // Si no, el mensaje de error ya fue mostrado por ProductoService.
     }
 }
